@@ -33,19 +33,63 @@ const App = () => {
   }, []); // Run once when the component mounts
 
   return (
-    <div>
-      <h1>QR Code Generator</h1>
-      <div>
-        <h2>Your QR Code:</h2>
-        {qrCodeUrl ? (
-          <img src={qrCodeUrl} alt="QR Code" />
-        ) : error ? (
-          <p style={{ color: "red" }}>{error}</p>
-        ) : (
-          <p>Loading QR Code...</p>
-        )}
-      </div>
-    </div>
+    <div
+  style={{
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+    minHeight: "100vh",
+    backgroundColor: "#f3f4f6",
+    padding: "1rem",
+  }}
+>
+  {/* Main Heading */}
+  <h1
+    style={{
+      fontSize: "2rem",
+      color: "#1f2937",
+      marginBottom: "2rem",
+      textAlign: "center",
+      marginTop: "6rem"
+    }}
+  >
+    QR Code Generator
+  </h1>
+
+  {/* Responsive Centered Card */}
+  <div
+    style={{
+      background: "white",
+      padding: "1.5rem",
+      borderRadius: "1rem",
+      boxShadow: "0 5px 20px rgba(0, 0, 0, 0.1)",
+      textAlign: "center",
+      width: "90%", // responsive width
+      maxWidth: "350px", // limit on large screens
+    }}
+  >
+    <h2 style={{ color: "#374151", fontSize: "1.2rem", marginBottom: "1rem" }}>
+      Scan This QR Code:
+    </h2>
+    {qrCodeUrl ? (
+      <img
+        src={qrCodeUrl}
+        alt="QR Code"
+        style={{ width: "200px", height: "200px" }}
+      />
+    ) : error ? (
+      <p style={{ color: "red" }}>{error}</p>
+    ) : (
+      <p style={{ color: "#6b7280" }}>Loading QR Code...</p>
+    )}
+  </div>
+</div>
+
+
+  
+  
+  
+
   );
 };
 
